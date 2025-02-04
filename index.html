@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 3 Programming Assignment</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1><u>Week 3 Programming Assignment</u></h1>
+    <h2>Multiway Branch</h2>
+    <pre><code>
+        import java.util.Scanner;
+        public class Multiway_Branch{
+            public static void main(String[] args) {
+                Scanner scanner = new Scanner(System.in);
+                while(true) {
+                    System.out.print("Enter first score: ");
+                    double student_score1 = scanner.nextDouble();
+                    System.out.print("Enter second score: ");
+                    double student_score2 = scanner.nextDouble();
+                    System.out.print("Enter third score: ");
+                    double student_score3 = scanner.nextDouble();
+            
+                    double avg_score = (student_score1 + student_score2 + student_score3)/ 3;
+            
+                    
+                    if(avg_score >= 90 && avg_score <= 100) {
+                        System.out.println("Excellent work!");
+                    } else if( avg_score >= 80) {
+                        System.out.println("Great work!");
+                    } else if( avg_score >= 70) {
+                        System.out.println("Hang in there and work hard!"); 
+                    } else if(  avg_score >= 60) {
+                        System.out.println("Passing, but marginal"); 
+                    } else if( avg_score < 60) {
+                        System.out.println("Failing"); 
+                    } else {
+                        System.out.println("Invalid response");
+                    }
+                
+                    System.out.printf("Average of the student's 3 scores: %.2f", avg_score);
+        
+        
+                    scanner.nextLine();
+                    System.out.print("\nWould you like to run program again (Enter yes or no)? ");
+                    String user_value = scanner.nextLine();
+                    
+                    if(user_value.equals("yes")) {
+                        System.out.print("Restarting...");
+                    } else {
+                        System.out.println("Goodbye");
+                        break;
+                    }
+                }
+               
+            }   
+        }
+}
+    </code></pre>
+    <h2>Switch Case</h2>
+    <code>
+      <pre>
+        import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        int number;
+        Scanner stdin = new Scanner(System.in);
+
+        System.out.print("Enter a single digit number between 0 and 9: ");
+        number = stdin.nextInt();
+
+        switch(number) { //look at the first character of
+            case 0: System.out.println("You entered a zero.");
+                break;
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 9: System.out.println("You entered an odd number.");
+                break;
+            case 2:
+            case 4:
+            case 6:
+            case 8: System.out.println("You entered an even number.");
+                break;
+            default:
+                System.out.println("ERROR: Bad input: " + number);
+                break;
+        }//end switch
+        
+        // // ternary operator
+        // System.out.print("Enter a number: ");
+        // int user_value = stdin.nextInt();
+
+        // String output = (user_value == 0 || user_value % 2 == 0) ? "You entered a 0" : "You entered an even number" : "ERROR: Bad input";
+        // System.out.print(output);
+
+
+
+
+
+
+    }//end main method
+}//end class
+
+    </pre
+      >
+    </code>
+    <h2>Nested if/else Statements</h2>
+    <code>
+      <pre>
+        import java.util.Scanner;
+
+public class Nested_If_Statements {
+   public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    // inputs 
+    System.out.print("How many scoops of ice scream are there? ");
+    int totalNumberOfScoops = scanner.nextInt();
+
+    System.out.print("How many T of sprinkles are there? ");
+    int availableSprinkles = scanner.nextInt();
+
+    System.out.print("How many T of M&Ms are there? ");
+    int availableMnMs = scanner.nextInt();
+
+    System.out.print("How many scoops in the order? ");
+    int orderedScoops = scanner.nextInt();
+
+    System.out.print("Do they want sprinkles? ");
+    String wantsSprinkles = scanner.nextLine().trim().toLowerCase();
+
+    System.out.print("Do they want M&Ms? ");
+    String wantsMms = scanner.nextLine().trim().toLowerCase();
+
+    //using ternary operater to reduce lines of code and if/else statements
+    int neededSprinkles = wantsSprinkles.equals("yes") ? orderedScoops * 2 : 0;
+    int neededMms = wantsMms.equals("yes") ? orderedScoops * 2 : 0;
+
+    // logic for displaying output through nested if/else statement 
+    if (orderedScoops > totalNumberOfScoops) {
+        System.out.println("Sadness.");
+    } else if (neededSprinkles > availableSprinkles || neededMms > availableMnMs) {
+        System.out.println("Sorry, can’t top it.");
+    } else {
+        System.out.print("Order up: ice cream");
+        if (wantsSprinkles.equals("yes") || wantsMms.equals("yes")) {
+            System.out.print(" with " + 
+                    (wantsSprinkles.equals("yes") ? "sprinkles" : "") + 
+                    (wantsSprinkles.equals("yes") && wantsMms.equals("yes") ? " and " : "") + 
+                    (wantsMms.equals("yes") ? "M&Ms" : ""));
+        
+        }
+        System.out.println();
+    }
+
+    scanner.close();
+   } 
+}
+
+    </pre
+      >
+    </code>
+  </body>
+</html>
